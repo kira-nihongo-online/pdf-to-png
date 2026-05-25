@@ -212,7 +212,12 @@ async function handlePDF(file) {
     actx.drawImage(tmpCanvas, x, y, newW, newH);
 
     const pngDataUrl = a4Canvas.toDataURL("image/png");
-    pngList.push({ name: `page_${pageNum}.png`, data: pngDataUrl });
+    const baseName = file.name.replace(/\.pdf$/i, '');
+
+    pngList.push({
+      name: `${baseName}_page_${pageNum}.png`,
+      data: pngDataUrl
+    });
 
     // ===== 個別ダウンロード表示 =====
     const container = document.createElement("div");
@@ -231,7 +236,9 @@ async function handlePDF(file) {
     btn.addEventListener("click", () => {
       const a = document.createElement("a");
       a.href = pngDataUrl;
-      a.download = `page_${pageNum}.png`;
+      const baseName = file.name.replace(/\.pdf$/i, '');
+
+      a.download = `${baseName}_page_${pageNum}.png`;
       a.click();
     });
 
