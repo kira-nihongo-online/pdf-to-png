@@ -164,6 +164,8 @@ fileInput.addEventListener('change', e => {
 
 async function handlePDF(file) {
 
+  const baseName = file.name.replace(/\.pdf$/i, '');
+
   output.innerHTML = "<p>変換中…少しお待ちください。</p>";
   zipArea.style.display = "none";
 
@@ -262,7 +264,7 @@ async function handlePDF(file) {
     const blob = await zip.generateAsync({ type: "blob" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "all_pages_png.zip";
+    a.download = `${baseName}.zip`;
     a.click();
   };
 }
