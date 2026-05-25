@@ -217,7 +217,7 @@ async function handlePDF(file) {
     const baseName = file.name.replace(/\.pdf$/i, '');
 
     pngList.push({
-      name: `${baseName}_page_${pageNum}.png`,
+      name: `${baseName}_${pageNum}.png`,
       data: pngDataUrl
     });
 
@@ -240,7 +240,7 @@ async function handlePDF(file) {
       a.href = pngDataUrl;
       const baseName = file.name.replace(/\.pdf$/i, '');
 
-      a.download = `${baseName}_page_${pageNum}.png`;
+      a.download = `${baseName}_${pageNum}.png`;
       a.click();
     });
 
