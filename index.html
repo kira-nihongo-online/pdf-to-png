@@ -69,12 +69,26 @@
       border: 1px solid #ccc;
       display: block;
     }
+
+    .title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo{
+      width:40px;
+      height:40px;
+    }
   </style>
 </head>
 
 <body>
 
-<h1>PDF → PNG 変換ツール（A4固定）</h1>
+<h1 class="title">
+  <img src="logo.png" class="logo">
+  PDF → PNG 変換ツール（A4固定）
+</h1>
 
 <h2>① PDFの読み込み（ドラッグ or クリック）</h2>
 
